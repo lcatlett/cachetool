@@ -1,13 +1,13 @@
-CacheTool - Manage cache in the CLI
+CacheTool - Manage Acquia cache in the CLI
 ===================================
 
-[![Build Status](https://img.shields.io/travis/gordalina/cachetool.svg)](https://travis-ci.org/gordalina/cachetool)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/gordalina/cachetool.svg)](https://scrutinizer-ci.com/g/gordalina/cachetool/?branch=master)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/gordalina/cachetool.svg)](https://scrutinizer-ci.com/g/gordalina/cachetool/?branch=master)
+[![Build Status](https://img.shields.io/travis/lcatlett/cachetool.svg)](https://travis-ci.org/lcatlett/cachetool)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/lcatlett/cachetool.svg)](https://scrutinizer-ci.com/g/lcatlett/cachetool/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/lcatlett/cachetool.svg)](https://scrutinizer-ci.com/g/lcatlett/cachetool/?branch=master)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/595c9feb-3f4d-473a-a575-81c7e97eb672.svg)](https://insight.sensiolabs.com/projects/595c9feb-3f4d-473a-a575-81c7e97eb672)
-[![Codacy Badge](https://img.shields.io/codacy/2d4176f2526d4251a51b691249c4d3e1.svg)](https://www.codacy.com/app/gordalina/cachetool/dashboard)
+[![Codacy Badge](https://img.shields.io/codacy/2d4176f2526d4251a51b691249c4d3e1.svg)](https://www.codacy.com/app/lcatlett/cachetool/dashboard)
 
-CacheTool allows you to work with `apc`, `opcache`, and the file status cache through the cli.
+CacheTool allows you to work with `apc`, `opcache`, and the file status cache through the cli on Acquia Hosting.
 It will connect to a fastcgi server (like php-fpm) and operate it's cache.
 
 Why is this useful?
@@ -30,7 +30,7 @@ Installation
 ------------
 
 ```sh
-$ curl -sO http://gordalina.github.io/cachetool/downloads/cachetool.phar
+$ curl -sO http://lcatlett.github.io/cachetool/downloads/cachetool.phar
 $ chmod +x cachetool.phar
 ```
 
@@ -122,7 +122,16 @@ Configuration File
 You can have a configuration file with the adapter configuration, allowing you to
 call CacheTool without `--fcgi`, `--cli`, or `--web` option.
 
-The file must be named `.cachetool.yml`. CacheTool will look for this file on the
+The file must be named `.cachetool.yml`. There is a sample for Acquia php 7.1 configuration
+named sample.cachetool.yml in the repository. To use this, copy and rename the file to
+`.cachetool.yml`:
+
+
+```sh
+$ cp sample.cachetool.yml .cachetool.yml
+```
+
+CacheTool will look for this file on the
 current directory and in any parent directory until it finds one.
 If the paths above fail it will try to load `/etc/cachetool.yml` configuration file.
 
@@ -165,13 +174,13 @@ Usage (as a library)
 Add it as a dependency
 
 ```sh
-$ composer require gordalina/cachetool
+$ composer require lcatlett/cachetool
 ```
 
 If you want to use it in a Symfony 2.x project, require the `1.x` version
 
 ```sh
-$ composer require gordalina/cachetool:~1.0
+$ composer require lcatlett/cachetool:~1.0
 ```
 
 Create instance
@@ -195,7 +204,7 @@ Proxies
 -------
 
 CacheTool depends on `Proxies` to provide functionality, by default when creating a CacheTool instance from the factory
-all proxies are enabled [`ApcProxy`](https://github.com/gordalina/cachetool/blob/master/src/CacheTool/Proxy/ApcProxy.php), [`OpcacheProxy`](https://github.com/gordalina/cachetool/blob/master/src/CacheTool/Proxy/OpcacheProxy.php) and [`PhpProxy`](https://github.com/gordalina/cachetool/blob/master/src/CacheTool/Proxy/PhpProxy.php), you can customize it or extend to your will like the example below:
+all proxies are enabled [`ApcProxy`](https://github.com/lcatlett/cachetool/blob/master/src/CacheTool/Proxy/ApcProxy.php), [`OpcacheProxy`](https://github.com/lcatlett/cachetool/blob/master/src/CacheTool/Proxy/OpcacheProxy.php) and [`PhpProxy`](https://github.com/lcatlett/cachetool/blob/master/src/CacheTool/Proxy/PhpProxy.php), you can customize it or extend to your will like the example below:
 
 ```php
 use CacheTool\Adapter\FastCGI;
