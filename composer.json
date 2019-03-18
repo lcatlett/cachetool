@@ -1,6 +1,6 @@
 {
-    "name": "gordalina/cachetool",
-    "description": "Manage your opcode & apc through the cli",
+    "name": "lcatlett/cachetool",
+    "description": "Manage your opcode & apc through the cli on Acquia Hosting",
     "keywords": ["cache", "opcache", "apc", "fastcgi", "opcode", "fpm"],
     "require": {
         "php": ">=7.1.0",
@@ -8,7 +8,7 @@
         "symfony/dependency-injection": "~4.0",
         "symfony/finder": "~4.0",
         "symfony/process": "~4.0",
-        "symfony/yaml": "~4.0",
+        "symfony/yaml": "^4.2",
         "psr/log": "~1.0",
         "monolog/monolog": "~1.1",
         "hollodotme/fast-cgi-client": "~1.4.2"
@@ -20,8 +20,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "gordalina",
-            "email": "samuel.gordalina@gmail.com"
+            "name": "lcatlett",
+            "email": "lindsey.catlett@gmail.com"
         }
     ],
     "autoload": {
@@ -33,7 +33,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/gordalina/cachetool"
+            "url": "https://github.com/lcatlett/cachetool"
         }
     ],
     "bin": ["bin/cachetool"]

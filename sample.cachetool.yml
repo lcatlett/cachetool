@@ -1,0 +1,3 @@
+adapter: cgi
+fastcgi:  /usr/local/php7.1/sbin/php-fpm
+temp_dir: /mnt/tmp
